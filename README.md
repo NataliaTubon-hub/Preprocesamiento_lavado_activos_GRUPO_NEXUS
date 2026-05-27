@@ -1,4 +1,4 @@
-# 🚗 Preprocesamiento de Dataset — Detección de Lavado de Activos
+# Preprocesamiento de Dataset — Detección de Lavado de Activos
 
 **Semillero de Investigación — PerceptIA**  
 **Equipo:** Nexus  
@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Este proyecto corresponde a la etapa de **preprocesamiento de datos** dentro de un pipeline de Machine Learning orientado a la **detección de lavado de activos** en transacciones de compra de vehículos.
 
@@ -14,7 +14,7 @@ El dataset contiene **32.606 registros** y **55 columnas** con información demo
 
 ---
 
-## 🗂️ Estructura del Repositorio
+##  Estructura del Repositorio
 
 ```
 nexus-kia-preprocessing/
@@ -24,11 +24,11 @@ nexus-kia-preprocessing/
 └── .gitignore                                           # Archivos a ignorar
 ```
 
-> ⚠️ El archivo `Datos_KIA.csv` **no se incluye** en el repositorio por contener datos sensibles de clientes. Para ejecutar el notebook, debes cargarlo manualmente en Google Colab.
+> ⚠️El archivo `Datos_KIA.csv` **no se incluye** en el repositorio por contener datos sensibles de clientes. Para ejecutar el notebook, debes cargarlo manualmente en Google Colab.
 
 ---
 
-## ✅ Qué se hizo — Pasos del Preprocesamiento
+##  Qué se hizo — Pasos del Preprocesamiento
 
 | # | Paso | Descripción |
 |---|---|---|
@@ -46,7 +46,7 @@ nexus-kia-preprocessing/
 
 ---
 
-## 🔑 Decisiones Metodológicas Clave
+##  Decisiones Metodológicas Clave
 
 ### Excepción de regla de negocio — columnas de coincidencias con listas de riesgo
 Las variables `coincidencias_listas`, `coincidencias_listas_Conyuge` y `coincidencias_listas_Tercero` superan el 97–99% de nulos, pero **no se eliminan**. En detección de lavado de activos, la ausencia de valor en estas columnas indica que el cliente no aparece en ninguna lista de riesgo, lo cual es en sí mismo una señal predictiva. Se imputan con `'SIN_COINCIDENCIA'` para crear una categoría explícita que el modelo pueda aprender a distinguir.
@@ -58,8 +58,7 @@ Los nombres completos de clientes, cónyuges y terceros funcionan como identific
 Dado que valores extremos en variables financieras pueden ser precisamente señales de alerta de lavado de activos, se optó por winsorizarlos al percentil 99 en lugar de eliminar los registros, preservando así la señal de anomalía.
 
 ---
-
-## 📊 Resultado del Preprocesamiento
+## Resultado del Preprocesamiento
 
 | Métrica | Valor |
 |---|---|
@@ -72,7 +71,7 @@ Dado que valores extremos en variables financieras pueden ser precisamente seña
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - Python 3.10+
 - pandas
@@ -83,7 +82,7 @@ Dado que valores extremos en variables financieras pueden ser precisamente seña
 
 ---
 
-## ▶️ Cómo ejecutar el notebook
+## Cómo ejecutar el notebook
 
 1. Abre [Google Colab](https://colab.research.google.com/)
 2. Sube el archivo `preprocesamiento_lavado_activos_GRUPO_NEXUS.ipynb`
